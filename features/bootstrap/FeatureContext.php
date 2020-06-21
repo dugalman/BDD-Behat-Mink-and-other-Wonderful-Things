@@ -7,6 +7,7 @@ use Behat\Gherkin\Node\TableNode;
 use Behat\MinkExtension\Context\MinkContext;
 use Behat\Behat\Tester\Exception\PendingException;
 
+require_once __DIR__.'/../../vendor/phpunit/phpunit/src/Framework/Assert/Functions.php';
 
 /**
  * Defines application features from the specific context.
@@ -48,9 +49,15 @@ class FeatureContext extends MinkContext implements Context, SnippetAcceptingCon
      */
     public function iShouldSeeInTheOutput($string)
     {
-        if (strpos($this->output, $string) === false) {
-            throw new \Exception(sprintf('Did not see "%s" in output "%s"', $string, $this->output));
-        }
+        // if (strpos($this->output, $string) === false) {
+        //     throw new \Exception(sprintf('Did not see "%s" in output "%s"', $string, $this->output));
+        // }
+        assertContains(
+            $string,
+            $this->output,
+            sprintf('Did not see "%s" in output "%s"', $string, $this->output)
+        );
+
     }
 
     /**
