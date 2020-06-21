@@ -93,3 +93,10 @@ Se ahace el curso sobre "BDD, Behat, Mink and other Wonderful Things"
 
     Ejecutar behat 
         ./vendor/bin/behat
+
+# Capitulo 02 - BDD Features [https://symfonycasts.com/screencast/behat/bdd-features]
+
+Crear una nuevas STORY :
+    - authentication
+    - fence api
+    - product admin
