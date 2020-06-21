@@ -13,6 +13,9 @@ use Behat\Behat\Tester\Exception\PendingException;
  */
 class FeatureContext extends MinkContext implements Context, SnippetAcceptingContext
 {
+
+    private $output;
+
     /**
      * Initializes context.
      *
@@ -25,26 +28,28 @@ class FeatureContext extends MinkContext implements Context, SnippetAcceptingCon
     }
 
     /**
-     * @Given I have a file named :arg1
+     * @Given I have a file named :filename
      */
-    public function iHaveAFileNamed($arg1)
+    public function iHaveAFileNamed($filename)
     {
-        throw new PendingException();
+        touch($filename);
     }
 
     /**
-     * @When I run :arg1
+     * @When I run :command
      */
-    public function iRun($arg1)
+    public function iRun($command)
     {
-        throw new PendingException();
+        $this->output = shell_exec($command);
     }
 
     /**
-     * @Then I should see :arg1 in the output
+     * @Then I should see :string in the output
      */
-    public function iShouldSeeInTheOutput($arg1)
+    public function iShouldSeeInTheOutput($string)
     {
-        throw new PendingException();
+        if (strpos($this->output, $string) === false) {
+            throw new \Exception(sprintf('Did not see "%s" in output "%s"', $string, $this->output));
+        }
     }
 }
