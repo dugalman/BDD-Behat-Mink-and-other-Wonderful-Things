@@ -7,7 +7,7 @@ use Behat\Gherkin\Node\TableNode;
 use Behat\MinkExtension\Context\MinkContext;
 use Behat\Behat\Tester\Exception\PendingException;
 
-require_once __DIR__.'/../../vendor/phpunit/phpunit/src/Framework/Assert/Functions.php';
+require_once __DIR__ . '/../../vendor/phpunit/phpunit/src/Framework/Assert/Functions.php';
 
 /**
  * Defines application features from the specific context.
@@ -57,7 +57,6 @@ class FeatureContext extends MinkContext implements Context, SnippetAcceptingCon
             $this->output,
             sprintf('Did not see "%s" in output "%s"', $string, $this->output)
         );
-
     }
 
     /**
@@ -79,5 +78,13 @@ class FeatureContext extends MinkContext implements Context, SnippetAcceptingCon
         if (is_dir('test')) {
             system('rm -r ' . realpath('test'));
         }
+    }
+
+    /**
+     * @Given I have a dir named :dir
+     */
+    public function iHaveADirNamed($dir)
+    {
+        mkdir($dir);
     }
 }
