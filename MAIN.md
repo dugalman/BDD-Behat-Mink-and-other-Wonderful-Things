@@ -1,10 +1,10 @@
 # Main
 
-Se ahace el curso sobre "BDD, Behat, Mink and other Wonderful Things"
+Se hace el curso sobre "BDD, Behat, Mink and other Wonderful Things"
 
 ## Instalar driver para FIREFOX
 
-- Geckodriver revisar que version de firefox tenes instalada. 
+- Geckodriver revisar que version de firefox tenes instalada.
     version 75.0 64-bit
 
     wget https://github.com/mozilla/geckodriver/releases/download/v0.26.0/geckodriver-v0.26.0-linux64.tar.gz
@@ -14,6 +14,7 @@ Se ahace el curso sobre "BDD, Behat, Mink and other Wonderful Things"
     geckodriver --version
 
 ## Instalar driver para CHROME
+
 - chrome driver revisar que version de crome tenes instalada. 
     version 81.0.4044.138 (Official Build) (64-bit)
 
@@ -24,13 +25,12 @@ Se ahace el curso sobre "BDD, Behat, Mink and other Wonderful Things"
     rm chromedriver_linux64.zip
     chromedriver --version
 
+## Capitulo 00 - install
 
-# Capitulo 00 - install
+### link
 
-## link 
 - https://symfonycasts.com/screencast/behat/install
 - https://github.com/knpuniversity/behat
-
 
 ## Pasos
 
@@ -53,12 +53,9 @@ Se ahace el curso sobre "BDD, Behat, Mink and other Wonderful Things"
         - user: admin
         - pass: admin
 
-# Capitulo 01 - From Install to JS Testing
+## Capitulo 01 - From Install to JS Testing [https://symfonycasts.com/screencast/behat/install]
 
-## link 
-- https://symfonycasts.com/screencast/behat/install
-
-## Pasos
+Pasos
 
     Usando gotte 
         $ composer require behat/mink-extension behat/mink-goutte-driver
@@ -83,8 +80,8 @@ Se ahace el curso sobre "BDD, Behat, Mink and other Wonderful Things"
 
         $ ./vendor/bin/behat
 
+PRUEBA
 
-## PRUEBA
     Levantar el servidor de LAMP
         php app/console server:run
 
@@ -94,9 +91,29 @@ Se ahace el curso sobre "BDD, Behat, Mink and other Wonderful Things"
     Ejecutar behat 
         ./vendor/bin/behat
 
-# Capitulo 02 - BDD Features [https://symfonycasts.com/screencast/behat/bdd-features]
+    Ejecutar behat un solo caso
+        ./vendor/bin/behat --name ls
+
+
+## Capitulo 02 - BDD Features [https://symfonycasts.com/screencast/behat/bdd-features]
 
 Crear una nuevas STORY :
-    - authentication
-    - fence api
-    - product admin
+    - authentication    "FILE::app/features/authentication.feature"
+    - fence api         "FILE::app/features/fence_api.feature"
+    - product admin     "FILE::app/features/product_admin.feature"
+
+desafio
+    https://symfonycasts.com/screencast/behat/bdd-features/activity/298
+
+    Feature: Registration
+        In order to send and receive messages from scientists I know
+        As a scientist
+        I need to be able to register for a new account
+
+## Capitulo 03 - Scenarios [https://symfonycasts.com/screencast/behat/scenarios]
+
+
+## Capitulo 04 - Behat [https://symfonycasts.com/screencast/behat/using-behat]
+
+Crear un test llamado "ls.feature" que prueba el LS
+Definir dentro de "FeatureContext.php" las funciones utilizadas en "ls.feature"
